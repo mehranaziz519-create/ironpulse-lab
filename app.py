@@ -6,7 +6,7 @@ app = Flask(__name__)
 # FLAW 3: Hardcoded and weak secret key
 app.secret_key = "ironpulse-secret"
 
-# FLAW 2: Hardcoded administrator password
+# FLAW 1: Hardcoded administrator password
 ADMIN_PASSWORD = "admin123"
 
 # Temporary storage for fitness bookings
@@ -53,7 +53,7 @@ HOME_PAGE = """
 </html>
 """
 
-# FLAW 3: No input validation on booking details
+# FLAW 2: No input validation on booking details
 @app.route("/")
 def home():
     return render_template_string(HOME_PAGE)
