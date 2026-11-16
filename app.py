@@ -3,7 +3,7 @@ from flask import Flask, request, render_template_string
 
 app = Flask(__name__)
 
-# FLAW 1: Hardcoded and weak secret key
+# FLAW 3: Hardcoded and weak secret key
 app.secret_key = "ironpulse-secret"
 
 # FLAW 2: Hardcoded administrator password
