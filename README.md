@@ -120,6 +120,13 @@ This application is intentionally vulnerable and created only for educational se
 
 It must only be run in a controlled local development environment. Do not deploy it publicly, use real customer information, or use real passwords.
 
+**Flaw 4: Flask Debug Mode Enabled**
+
+**Location:** `app.py` — application startup.
+
+**Security Impact:** 
+
+Flask debug mode is disabled (`debug=False`) to prevent detailed error tracebacks and exposure of the interactive debugger, which could allow attackers to execute unauthorized code.
 ## Project Purpose
 
 The purpose of this project is to understand common web application security weaknesses, identify them through manual testing, document their impact, and learn recommended security improvements.
