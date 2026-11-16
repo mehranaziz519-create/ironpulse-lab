@@ -53,25 +53,27 @@ Store credentials securely using environment variables or a secure authenticatio
 
 The booking form accepts customer information without checking whether the submitted values are valid.
 
-**Security Risk:**
+**Impact:**
 
-Users can submit empty names, invalid email addresses, and incorrect phone numbers. This can result in incomplete or unreliable booking records.
+This is primarily a data quality and reliability issue, not a direct security vulnerability. Users can submit empty names, invalid email addresses, and incorrect phone numbers, resulting in fake, incomplete, or unreliable booking records. Excessively long or repeated submissions may also consume application resources.
 
 **Manual Testing:**
 
-Test 1:
+**Test 1:**
 - Submit the booking form with all fields empty.
 - Observe that the booking is accepted.
 
-Test 2:
+**Test 2:**
 - Enter `not-an-email` as the email.
 - Enter `abc123` as the phone number.
 - Submit the booking form.
 - Observe that the booking is accepted.
 
 **Recommended Fix:**
-
-Validate all input fields on the server before saving a booking. Check required fields, email format, phone format, and allowed fitness session values.
+- Validate all required fields on the server side.
+- Check email and phone number formats.
+- Set maximum input length limits.
+- Implement rate limiting to reduce repeated submissions.
 
 ### 3. Weak Hardcoded Flask Secret Key
 
