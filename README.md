@@ -126,7 +126,26 @@ It must only be run in a controlled local development environment. Do not deploy
 
 **Security Impact:** 
 
-Flask debug mode is disabled (`debug=False`) to prevent detailed error tracebacks and exposure of the interactive debugger, which could allow attackers to execute unauthorized code.
+Flask Debug Mode is disabled in the current application configuration.
+
+Although enabling debug mode in production can expose sensitive information, this issue is not active in the current code.
+
+Bandit did not report this as a vulnerability.
+
 ## Project Purpose
 
 The purpose of this project is to understand common web application security weaknesses, identify them through manual testing, document their impact, and learn recommended security improvements.
+
+
+## Bandit Security Scan Results
+
+Bandit detected 2 potential security issues, both with Low severity:
+
+- Hardcoded administrator password.
+- Hardcoded Flask secret key.
+
+No High severity issues were reported.
+
+However, this does not mean the application is completely secure. Bandit performs static code analysis and cannot reliably identify every application-specific vulnerability, input validation issue, or runtime security problem.
+
+Manual security testing and additional application-level testing are still necessary.
