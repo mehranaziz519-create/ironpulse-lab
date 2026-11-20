@@ -191,6 +191,13 @@ To view CI results, open the GitHub repository and click the **Actions** tab. Se
 
 A green check means the Bandit scan completed successfully. A red cross means the Bandit step failed. This may happen when security findings meet the configured severity threshold or when a scanning error occurs. Check the Bandit logs for details.
 
+In this repository, a red Bandit result is expected because `app.py` contains intentional security flaws, including a hardcoded admin password and secret key. Bandit reports these findings, causing the workflow to fail.
+
+### Example Bandit Findings
+
+Bandit scans Python files and reports security issues with their severity and confidence levels. In this project, two Low severity findings were identified.
+
+Check the Bandit logs in GitHub Actions for the actual finding details.
 ### Understanding Gitleaks Results
 
 A green check means Gitleaks completed without detecting secrets that caused the scan to fail. A red cross may indicate a detected secret or a scanning error.
