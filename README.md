@@ -185,12 +185,15 @@ Both security scanning steps completed successfully in the latest workflow run.
 GitHub Actions runs the security and CI workflow when code is pushed to the `main` branch or when a pull request targets `main`.
 
 ### Green Run (Success)
+
 A green check mark means the workflow completed successfully. The configured Bandit and Gitleaks scans did not report findings that caused the workflow to fail.
 
 ### Red Run (Failure)
+
 A red cross means one or more workflow steps failed. Open the failed workflow run, select the failed job, and review the logs to identify the cause. A failure may indicate a security finding, a configuration problem, or another workflow error.
 
 ### Reading Gitleaks Results
+
 When Gitleaks detects a possible secret, review these fields in the workflow logs:
 
 - **Finding:** The detected secret value. GitHub may redact it.
