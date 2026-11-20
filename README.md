@@ -204,3 +204,7 @@ When Gitleaks detects a possible secret, review these fields in the workflow log
 - **Leaks found:** The number of detected findings.
 
 A Gitleaks finding causes the security scan to fail intentionally. Review the finding, remove the exposed secret, and use a secure method such as GitHub Actions secrets for sensitive values. Do not commit real credentials to the repository.
+
+### Limitations of Default Gitleaks Detection
+
+Gitleaks uses built-in rules to detect secrets that match known token formats and patterns. It does not automatically detect every arbitrary hardcoded string. For example, `ADMIN_PASSWORD = "admin123"` and `app.secret_key = "ironpulse-secret"` in `app.py` are not detected because they do not match the patterns covered by the default rules. To detect these types of values, a custom `.gitleaks.toml` rule can be added. Another recommended improvement is to move sensitive values into environment variables instead of hardcoding them in the source code. This demonstrates that secret scanning is useful but cannot guarantee detection of every exposed credential.
