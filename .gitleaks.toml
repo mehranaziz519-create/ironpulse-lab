@@ -1,0 +1,7 @@
+title = "Ironpulse Gitleaks Configuration"
+
+[[rules]]
+id = "test-secret"
+description = "Detect fake test secrets"
+regex = '''TEST_SECRET_[A-Z0-9]{20}'''
+keywords = ["TEST_SECRET_"]
