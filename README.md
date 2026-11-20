@@ -183,6 +183,24 @@ Both security scanning steps completed successfully in the latest workflow run.
 ## Understanding CI Results
 
 GitHub Actions runs the security and CI workflow when code is pushed to the `main` branch or when a pull request targets `main`.
+### How to Check CI Results
+
+To view CI results, open the GitHub repository and click the **Actions** tab. Select the latest workflow run to view its status and logs.
+
+### Understanding Bandit Results
+
+A green check means the Bandit scan completed successfully. A red cross means the Bandit step failed. This may happen when security findings meet the configured severity threshold or when a scanning error occurs. Check the Bandit logs for details.
+
+### Understanding Gitleaks Results
+
+A green check means Gitleaks completed without detecting secrets that caused the scan to fail. A red cross may indicate a detected secret or a scanning error.
+
+When reviewing a Gitleaks finding, check:
+- **RuleID:** Which detection rule matched the secret.
+- **File:** Where the finding was detected.
+- **Line:** The line containing the finding.
+- **Commit:** The commit that introduced the finding.
+- **Leaks found:** The total number of detected secrets.
 
 ### Green Run (Success)
 
