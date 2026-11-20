@@ -149,3 +149,33 @@ No High severity issues were reported.
 However, this does not mean the application is completely secure. Bandit performs static code analysis and cannot reliably identify every application-specific vulnerability, input validation issue, or runtime security problem.
 
 Manual security testing and additional application-level testing are still necessary.
+
+
+## Automated Security Scanning and CI Pipeline
+
+This project uses GitHub Actions to automate security testing.
+
+### Security Tools
+
+- **Bandit:** Scans Python source code for common security issues.
+- **Gitleaks:** Scans the repository for exposed secrets and credentials.
+
+### CI Workflow
+
+The GitHub Actions workflow is located at:
+
+`.github/workflows/ci.yml`
+
+The pipeline runs automatically on:
+- Push events to the main branch.
+- Pull requests targeting the main branch.
+
+### Workflow Steps
+
+1. Checkout the repository.
+2. Set up Python 3.11.
+3. Install Bandit.
+4. Run Bandit security scanning.
+5. Run Gitleaks secret scanning.
+
+Both security scanning steps completed successfully in the latest workflow run.
