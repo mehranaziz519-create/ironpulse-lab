@@ -179,3 +179,25 @@ The pipeline runs automatically on:
 5. Run Gitleaks secret scanning.
 
 Both security scanning steps completed successfully in the latest workflow run.
+
+## Understanding CI Results
+
+GitHub Actions runs the security and CI workflow when code is pushed to the `main` branch or when a pull request targets `main`.
+
+### Green Run (Success)
+A green check mark means the workflow completed successfully. The configured Bandit and Gitleaks scans did not report findings that caused the workflow to fail.
+
+### Red Run (Failure)
+A red cross means one or more workflow steps failed. Open the failed workflow run, select the failed job, and review the logs to identify the cause. A failure may indicate a security finding, a configuration problem, or another workflow error.
+
+### Reading Gitleaks Results
+When Gitleaks detects a possible secret, review these fields in the workflow logs:
+
+- **Finding:** The detected secret value. GitHub may redact it.
+- **RuleID:** The rule that identified the possible secret.
+- **File:** The file containing the finding.
+- **Line:** The line number where the finding was detected.
+- **Commit:** The commit containing the finding.
+- **Leaks found:** The number of detected findings.
+
+A Gitleaks finding causes the security scan to fail intentionally. Review the finding, remove the exposed secret, and use a secure method such as GitHub Actions secrets for sensitive values. Do not commit real credentials to the repository.
